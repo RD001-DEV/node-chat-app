@@ -14,11 +14,33 @@
                 <form action="/chat.html">
                     <label>Display name</label>
                     <input type="text" name="username" placeholder="Display name" required>
-                    <label>Room</label>
-                    <input type="text" name="room" placeholder="Room" required>
-                    <button>join</button>
-                </form>   
-            </div>
+                    <label>New Room</label>
+                    <input type="text" id="roomLabel" name="room" placeholder="Room" required>
+                    <label>Or Select Existing Room</label>
+                    <select class="input-txt" id="rooms" >
+                        <option value="">Select an existing room:</option>
+                    </select>
+                    <button type="submit" id="sendJoin">join</button>
+                </form>
+            </div>    
         </div>
+
+        <script id="room-template2" type="text/html">
+            <div>
+                {{room}}
+            </div>
+        </script>
+
+        <script id="room-template" type="text/html">
+            <div>
+                {{#rooms}} <option value="{{.}}">{{.}}</option> {{/rooms}}
+            </div>
+        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="./js/home.js"></script>
     </body>
 </html>
